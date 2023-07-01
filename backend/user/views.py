@@ -11,8 +11,8 @@ from user.models import UserModel
 
 class LoginView(APIView):
     def post(self, request):
-        username = request.data.username
-        password = request.data.password
+        username = request.data["username"]
+        password = request.data["password"]
         if not username or password:
             return Response({"message":"아이디와 비밀번호를 입력해 주세요."}, status=status.HTTP_400_BAD_REQUEST)
 
